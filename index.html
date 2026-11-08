@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="board-wrap">
+      <div class="player-bar" id="top-bar">
+        <span class="player-name" id="top-name">Black</span>
+        <span class="captured" id="top-captured"></span>
+      </div>
+      <div class="board" id="board" aria-label="Chess board"></div>
+      <div class="player-bar" id="bottom-bar">
+        <span class="player-name" id="bottom-name">White</span>
+        <span class="captured" id="bottom-captured"></span>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <h1>Chess</h1>
+      <div class="status" id="status">White to move</div>
+
+      <div class="controls">
+        <label>
+          Mode
+          <select id="mode">
+            <option value="pvp">2 Players</option>
+            <option value="ai-b" selected>vs Computer (you play White)</option>
+            <option value="ai-w">vs Computer (you play Black)</option>
+          </select>
+        </label>
+        <label>
+          Difficulty
+          <select id="difficulty">
+            <option value="1">Easy</option>
+            <option value="2" selected>Medium</option>
+            <option value="4">Hard</option>
+          </select>
+        </label>
+        <div class="buttons">
+          <button id="new-game">New Game</button>
+          <button id="undo">Undo</button>
+          <button id="flip">Flip Board</button>
+        </div>
+      </div>
+
+      <h2>Moves</h2>
+      <ol class="moves" id="moves"></ol>
+    </aside>
+  </main>
+
+  <div class="modal hidden" id="promo-modal">
+    <div class="modal-box">
+      <p>Promote to:</p>
+      <div class="promo-choices" id="promo-choices"></div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="end-modal">
+    <div class="modal-box">
+      <h2 id="end-title"></h2>
+      <p id="end-reason"></p>
+      <button id="end-new">Play Again</button>
+      <button id="end-close" class="secondary">View Board</button>
+    </div>
+  </div>
+
+  <script src="chess.js"></script>
+  <script src="ai.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
